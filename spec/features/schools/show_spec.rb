@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe 'the schools show page' do 
+
+# User Story 1, School Index 
+# For each school table
+# As a visitor
+# When I visit '/schools'
+# Then I see the name of each school record in the system
+
 # User Story 2, School Show 
 # As a visitor
 # When I visit '/schools/:id'
@@ -36,7 +43,6 @@ RSpec.describe 'the schools show page' do
       school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
                                   ap_program: false)           
       visit "/schools/#{school.id}"
-      save_and_open_page
 
       expect(page).to have_content(school.ap_program)
       expect(page).to_not have_content(school_2.ap_program)
