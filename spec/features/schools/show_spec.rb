@@ -29,6 +29,18 @@ RSpec.describe 'the schools show page' do
       expect(page).to have_content(school.national_rank)
       expect(page).to_not have_content(school_2.national_rank)
    end
+
+   it 'displays true if the school has an AP Program' do 
+      school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                                ap_program: true)
+      school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
+                                  ap_program: false)           
+      visit "/schools/#{school.id}"
+      save_and_open_page
+
+      expect(page).to have_content(school.ap_program)
+      expect(page).to_not have_content(school_2.ap_program)
+   end
 end
       
 
