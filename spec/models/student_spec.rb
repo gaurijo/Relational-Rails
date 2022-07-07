@@ -7,5 +7,9 @@ describe Student, type: :model do
       it { should allow_value(true). for(:honor_roll)}
       it { should allow_value(false). for(:honor_roll)}
    end
+
+   describe "relationships" do 
+      it { should belong_to :school}
+   end
 end
       

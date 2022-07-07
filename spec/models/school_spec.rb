@@ -6,5 +6,9 @@ RSpec.describe School, type: :model do
         it { should validate_presence_of(:national_rank)}
         it { should allow_value(true). for(:ap_program)}
         it { should allow_value(false). for(:ap_program)}
-    end             
+    end 
+    
+    describe 'relationships' do 
+        it { should have_many :students}
+    end
 end
