@@ -2,13 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'the schools show page' do 
 
-# User Story 1, School Index 
-# For each school table
-# As a visitor
-# When I visit '/schools'
-# Then I see the name of each school record in the system
 
-# CREATE A NEW index_spec.rb for user story 1 feature testing****
 
 # User Story 2, School Show 
 # As a visitor
