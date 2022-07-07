@@ -33,5 +33,12 @@ RSpec.describe School, type: :model do
         end
 
     end
+
+    describe 'validations' do 
+        it { should validate_presence_of(:name)}
+        it { should validate_presence_of(:national_rank)}
+        it { should allow_value(true). for(:ap_program)}
+        it { should allow_value(false). for(:ap_program)}
+    end
                 
 end
