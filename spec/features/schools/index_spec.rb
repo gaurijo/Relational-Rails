@@ -9,15 +9,15 @@ RSpec.describe 'the school index page' do
 # Then I see the name of each school record in the system
 
    it 'displays the name of each school' do 
-    school = School.create!(name: "Lemonade High School", national_rank: 12, 
-                                ap_program: true)
-    school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
-                                  ap_program: false) 
+      school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                              ap_program: true)
+      school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
+                              ap_program: false) 
    
-    visit '/schools' 
+      visit '/schools' 
 
-    expect(page).to have_content(school.name)
-    expect(page).to have_content(school_2.name)
-    expect(page).to_not have_content(school.national_rank)
+      expect(page).to have_content(school.name)
+      expect(page).to have_content(school_2.name)
+      expect(page).to_not have_content(school.national_rank)
    end
 end
