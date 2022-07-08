@@ -18,7 +18,9 @@ RSpec.describe School, type: :model do
                                 ap_program: true)
             school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
                                 ap_program: false) 
-            expect(School.order("created_at desc")).to eq([school_2, school])
+            school_3 = School.create!(name: "Kiwi High School", national_rank: 210,
+                                ap_program: false) 
+            expect(School.order("created_at desc")).to eq([school_3, school_2, school])
         end
     end
 end

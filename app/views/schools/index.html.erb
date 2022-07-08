@@ -1,4 +1,8 @@
 <h1>Schools</h1>
-<% @schools.each do |school| %>
-<p><%= school.name %></p>
+
+<% @schools.each_with_index do |school, index| %>
+<div id="school-<%= index%>">
+<p> <%= school.name %></p>
+<p> <%= school.created_at %></p>
+</div>
 <% end %>

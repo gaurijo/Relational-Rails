@@ -31,18 +31,26 @@ RSpec.describe 'the school index page' do
                               ap_program: true)
       school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
                               ap_program: false) 
+      school_3 = School.create!(name: "Kiwi High School", national_rank: 210,
+                              ap_program: false) 
 
       visit '/schools'
+      # save_and_open_page
 
       within '#school-0' do 
-         expect(page).to have_content("Watermelon High School")
+         expect(page).to have_content("Kiwi High School")
       end
 
       within '#school-1' do 
+         expect(page).to have_content("Watermelon High School")
+      end
+
+      within '#school-2' do 
          expect(page).to have_content("Lemonade High School")
       end
    end
 
-   it 'displays when the school record was created_at' 
+   it 'displays when the school record was created_at'  
+
    
 end
