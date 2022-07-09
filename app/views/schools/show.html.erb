@@ -1,5 +1,6 @@
 <%= link_to "Students", "/students" %>
 
 <h1><%= @school.name %></h1>
-<p>National Rank:<%= @school.national_rank %></p>
-<p>AP Program:<%= @school.ap_program %></p>
+<p>National Rank: <%= @school.national_rank %></p>
+<p>AP Program: <%= @school.ap_program %></p>
+<p>Students: <%= @school.students.count %></p>

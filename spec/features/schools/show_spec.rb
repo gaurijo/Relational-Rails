@@ -44,18 +44,21 @@ RSpec.describe 'the schools show page' do
       expect(page).to_not have_content(school_2.ap_program)
    end
 
-   xit 'displays the count of the number of students associated with the school' do 
+   it 'displays the count of the number of students associated with the school' do 
       school = School.create!(name: "Lemonade High School", national_rank: 12, 
                               ap_program: true)
       school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
                               ap_program: false)
       school_3 = School.create!(name: "Kiwi High School", national_rank: 210,
-                              ap_program: false)           
+                              ap_program: false)   
+      student = school.students.create!(name: "Mira", honor_roll: true, class_rank: 4)
+      student_2 = school.students.create!(name: "Ellen", honor_roll: true, class_rank: 29)   
+
       visit "/schools/#{school.id}"
 
-      within '#school-0' do 
-         expect(page).to have_content(school.first.students.count)
-      end
+      # within '#school-0' do 
+      expect(page).to have_content("Students")
+      
    end
 
    it 'displays a link at the top of the page that takes user to the students show page' do 
