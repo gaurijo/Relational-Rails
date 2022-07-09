@@ -9,7 +9,7 @@ class School < ApplicationRecord
       order(created_at: :desc)
    end
 
-   # def self.student_count
-   #    where("students_count = ?", params[:students])
-   # end
+   def student_count
+      self.students.count
+   end
 end
