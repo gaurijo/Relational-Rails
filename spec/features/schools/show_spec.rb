@@ -72,6 +72,22 @@ RSpec.describe 'the schools show page' do
 
       expect(page).to have_link("Students")
    end
+
+   it 'displays a link at the top of the page that takes user to the schools index page' do 
+      school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                                 ap_program: true)
+      school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
+                                    ap_program: false)                          
+      student = school.students.create!(name: "Mira", honor_roll: true, class_rank: 4)
+      student_2 = school_2.students.create!(name: "Ellen", honor_roll: true, class_rank: 29)
+      
+      visit "/schools/#{school.id}"
+      click_link "Schools"
+      
+      expect(page).to have_link("Schools")
+      expect(current_path).to eq('/schools')
+      
+   end
 end
       
 
