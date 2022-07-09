@@ -11,4 +11,16 @@ RSpec.describe School, type: :model do
     describe 'relationships' do 
         it { should have_many :students}
     end
+
+    describe 'order_by_created_at_desc' do 
+        it 'displays the school records ordered by most recently created first' do 
+            school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                                ap_program: true)
+            school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
+                                ap_program: false) 
+            school_3 = School.create!(name: "Kiwi High School", national_rank: 210,
+                                ap_program: false) 
+            expect(School.order("created_at desc")).to eq([school_3, school_2, school])
+        end
+    end
 end
