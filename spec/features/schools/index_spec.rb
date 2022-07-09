@@ -50,7 +50,17 @@ RSpec.describe 'the school index page' do
       end
    end
 
-   it 'displays when the school record was created_at'  
+   it 'displays next to the school record when the school record was created_at' do 
+      school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                              ap_program: true)
+      school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
+                              ap_program: false) 
+      school_3 = School.create!(name: "Kiwi High School", national_rank: 210,
+                              ap_program: false) 
+      visit '/schools'
 
+      expect(page).to have_content(school.created_at)
+      expect(page).to_not have_content(school.national_rank)
+   end
    
 end
