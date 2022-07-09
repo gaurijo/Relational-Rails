@@ -8,4 +8,8 @@ class School < ApplicationRecord
    def self.sort_by_created_at 
       order(created_at: :desc)
    end
+
+   # def self.student_count
+   #    where("students_count = ?", params[:students])
+   # end
 end
