@@ -13,9 +13,9 @@ RSpec.describe 'the schools show page' do
 
    it 'displays the school name with the associated id' do 
       school = School.create!(name: "Lemonade High School", national_rank: 12, 
-                                ap_program: true)
+                              ap_program: true)
       school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
-                                  ap_program: false)           
+                                 ap_program: false)                                 
       visit "/schools/#{school.id}"
 
       expect(page).to have_content(school.name)
@@ -24,9 +24,9 @@ RSpec.describe 'the schools show page' do
 
    it 'displays the national rank of the school' do 
       school = School.create!(name: "Lemonade High School", national_rank: 12, 
-                                ap_program: true)
+                              ap_program: true)
       school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
-                                  ap_program: false)           
+                                 ap_program: false)           
       visit "/schools/#{school.id}"
       # save_and_open_page
       expect(page).to have_content(school.national_rank)
@@ -35,16 +35,42 @@ RSpec.describe 'the schools show page' do
 
    it 'displays true if the school has an AP Program' do 
       school = School.create!(name: "Lemonade High School", national_rank: 12, 
-                                ap_program: true)
+                              ap_program: true)
       school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
-                                  ap_program: false)           
+                              ap_program: false)           
       visit "/schools/#{school.id}"
 
       expect(page).to have_content(school.ap_program)
       expect(page).to_not have_content(school_2.ap_program)
    end
+
+   xit 'displays the count of the number of students associated with the school' do 
+      school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                              ap_program: true)
+      school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
+                              ap_program: false)
+      school_3 = School.create!(name: "Kiwi High School", national_rank: 210,
+                              ap_program: false)           
+      visit "/schools/#{school.id}"
+
+      within '#school-0' do 
+         expect(page).to have_content(school.first.students.count)
+      end
+   end
+
+   it 'displays a link at the top of the page that takes user to the students show page' do 
+      school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                                 ap_program: true)
+      school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
+                                    ap_program: false)                          
+      
+      visit "/schools/#{school.id}"
+      click_link "Students"
+
+      expect(page).to have_link("Students")
+   end
 end
       
 
       
-   # it 'displays if the school has an ap program'
+   

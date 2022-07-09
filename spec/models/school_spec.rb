@@ -23,4 +23,16 @@ RSpec.describe School, type: :model do
             expect(School.order("created_at desc")).to eq([school_3, school_2, school])
         end
     end
+
+    describe 'count_students' do 
+        xit 'displays the number of students associated with that school' do 
+            school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                                ap_program: true)
+            school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
+                                ap_program: false) 
+            school_3 = School.create!(name: "Kiwi High School", national_rank: 210,
+                                ap_program: false) 
+            expect(school.students.count).to eq(2)
+        end
+    end
 end

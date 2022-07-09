@@ -9,7 +9,7 @@ require 'rails_helper'
 RSpec.describe 'school students index' do 
    it 'shows all of the student names for the school' do
       school = School.create!(name: "Lemonade High School", national_rank: 12, 
-                                ap_program: true)
+                              ap_program: true)
       mira = school.students.create!(name: "Mira", honor_roll: true, class_rank: 4)
       rhonda = school.students.create!(name: "Rhonda", honor_roll: false, class_rank: 49)
 
@@ -21,7 +21,7 @@ RSpec.describe 'school students index' do
 
    it 'shows all of the student honor roll for the school' do 
       school = School.create!(name: "Lemonade High School", national_rank: 12, 
-                                ap_program: true)
+                              ap_program: true)
       mira = school.students.create!(name: "Mira", honor_roll: true, class_rank: 4)
       rhonda = school.students.create!(name: "Rhonda", honor_roll: false, class_rank: 49)
 
@@ -33,7 +33,7 @@ RSpec.describe 'school students index' do
 
    it 'shows all of the student class rank status for the school' do 
       school = School.create!(name: "Lemonade High School", national_rank: 12, 
-                                ap_program: true)
+                              ap_program: true)
       mira = school.students.create!(name: "Mira", honor_roll: true, class_rank: 4)
       rhonda = school.students.create!(name: "Rhonda", honor_roll: false, class_rank: 49)
 
