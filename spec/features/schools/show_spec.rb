@@ -101,6 +101,7 @@ RSpec.describe 'the schools show page' do
       find_link "Roster"
       
       expect(page).to have_link("Roster")
+      # expect(current_path).to eq("/schools/#{school.id}/students")
       
    end
 end
