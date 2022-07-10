@@ -1,0 +1,9 @@
+<%= form_with url: "/schools", method: :post, local: true do |form| %>
+   <p><%= form.label :name %>
+   <%= form.text_field :name %></p>
+   <p><%= form.label :national_rank %>
+   <%= form.text_field :national_rank %></p>
+   <p><%= form.label :ap_program %>
+   <%= form.text_field :ap_program %></p>
+   <%= form.submit 'Create New School' %>
+<% end %>

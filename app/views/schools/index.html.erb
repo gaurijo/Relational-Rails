@@ -1,6 +1,7 @@
 <h1>Schools</h1>
 <%= link_to "Students", "/students" %>
 <%= link_to "Schools", "/schools" %>
+<%= link_to "New School", "/schools/new" %>
 
 <% @schools.each_with_index do |school, index| %>
 <div id="school-<%= index%>">
