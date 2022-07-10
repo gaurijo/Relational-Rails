@@ -35,7 +35,12 @@ RSpec.describe 'the School update' do
 
       visit "/schools/#{school.id}/edit"
 
-      fill_in
+      fill_in('Name', with: "Lemon High School")
+      fill_in('National rank', with: 99)
+      fill_in('Ap program', with: false)
+      click_on('Submit')
+
+      expect(current_path).to eq("/schools/#{school.id}")
 
    end
 end

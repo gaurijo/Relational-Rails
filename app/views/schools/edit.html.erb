@@ -1,9 +1,9 @@
-<%= form_with url: "/schools/:#{@school.id}/edit", method: :patch, local: true do |form| %>
+<%= form_with url: "/schools/:#{@school.id}", method: :patch, local: true do |form| %>
    <p><%= form.label :name %>
    <%= form.text_field :name %></p>
    <p><%= form.label :national_rank %>
    <%= form.text_field :national_rank %></p>
    <p><%= form.label :ap_program %>
    <%= form.text_field :ap_program %></p>
-   <%= form.submit 'Update Button' %>
+   <%= form.submit 'Submit' %>
 <% end %>

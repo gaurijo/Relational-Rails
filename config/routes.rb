@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   post '/schools', to: 'schools#create'
   get '/schools/:id', to: 'schools#show'
   get '/schools/:id/edit', to: 'schools#edit'
+  patch '/schools/:id', to: 'schools#update'
 end
