@@ -1,6 +1,7 @@
 <%= link_to "Students", "/students" %>
 <%= link_to "Schools", "/schools" %>
 <%= link_to "Roster", "/schools/#{@school.id}/students" %>
+<%= link_to "Update School", "/schools/#{@school.id}/edit" %>
 
 <h1><%= @school.name %></h1>
 <p>National Rank: <%= @school.national_rank %></p>

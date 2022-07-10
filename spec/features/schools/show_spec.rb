@@ -104,6 +104,16 @@ RSpec.describe 'the schools show page' do
       # expect(current_path).to eq("/schools/#{school.id}/students")
       
    end
+
+   it 'displays a link to update the school page' do 
+      school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                                 ap_program: true)
+   
+      visit "/schools/#{school.id}"
+      find_link "Update School"
+
+      expect(page).to have_link("Update School")
+   end
 end
       
 

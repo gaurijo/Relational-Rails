@@ -95,15 +95,5 @@ RSpec.describe 'the school index page' do
       
    end
 
-   # it 'displays all schools including newly created records' do 
-   #    visit '/schools'
-   #    school = School.create!(name: "Lemonade High School", national_rank: 12, 
-   #                               ap_program: true)
-   #    school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
-   #                                  ap_program: false)
-   #    school_4 = School.create!(name: "Mango High School", national_rank: 89, 
-   #                               ap_program: false)
-
-   #    expect(page).to have_content("Mango High School")
-   # end 
+   
 end
