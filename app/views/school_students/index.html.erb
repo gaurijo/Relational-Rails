@@ -1,4 +1,5 @@
 <%= link_to "Students", "/students" %>
+<%= link_to "Create Student", "/schools/:school_id/students/new" %>
 <% @students.each do |student| %>
    <p>Name: <%= student.name %></p>
    <p>Honor Roll: <%= student.honor_roll %></p>

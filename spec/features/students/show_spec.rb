@@ -78,4 +78,19 @@ RSpec.describe 'the students show page' do
 
       expect(page).to have_link("Students")
    end
+
+# As a visitor (story 14)
+# When I visit a Child Show page
+# Then I see a link to update that Child "Update Child"
+
+   it 'displays a link to update the student page' do 
+      school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                                 ap_program: true)
+      student = school.students.create!(name: "Mira", honor_roll: true, class_rank: 4)
+
+      visit "/students/#{student.id}"
+      find_link "Update Student"
+
+      expect(page).to have_link("Update Student")
+   end
 end
