@@ -3,4 +3,8 @@ class SchoolStudentsController < ApplicationController
       school = School.find(params[:school_id])
       @students = school.students
    end
+
+   def new 
+   end
+   
 end
