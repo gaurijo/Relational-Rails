@@ -43,7 +43,7 @@ RSpec.describe 'the students show page' do
       school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
                                  ap_program: false)
       student = school.students.create!(name: "Mira", honor_roll: true, class_rank: 4)
-      student_2 = school_2.students.create!(name: "Ellen", honor_roll: true, class_rank: 29) 
+      student_2 = school_2.students.create!(name: "Ellen", honor_roll: true, class_rank: 89) 
 
       visit "/students/#{student.id}"
 
