@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get '/schools/:id', to: 'schools#show'
   get '/schools/:id/edit', to: 'schools#edit'
   patch '/schools/:id', to: 'schools#update'
+  patch '/students/:id', to: 'students#update'
 end
