@@ -101,4 +101,15 @@ RSpec.describe 'the student index page' do
         expect(page).to have_link("Schools")
         expect(current_path).to eq('/schools')
     end
+
+    it 'only shows student records where the student honor roll status is true' do 
+        school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                                ap_program: true)
+        mandy = school.students.create!(name: "Mandy", honor_roll: true, class_rank: 4)
+        noah = school.students.create!(name: "Noah", honor_roll: false, class_rank: 29)
+
+        visit '/students'
+        expect(page).to have_content("Mandy")
+        expect(page).to_not have_content("Noah")
+    end
 end

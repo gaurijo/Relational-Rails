@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
    def index 
-      @students = Student.all
+      @students = Student.all.where(honor_roll: true)
    end
 
    def show 
