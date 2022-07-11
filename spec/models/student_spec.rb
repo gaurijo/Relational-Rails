@@ -11,5 +11,16 @@ describe Student, type: :model do
    describe "relationships" do 
       it { should belong_to :school}
    end
+
+   describe "true records" do 
+      it 'only displays the student records for students who are on the honor roll' do 
+         school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                                 ap_program: true)
+         mandy = school.students.create!(name: "Mandy", honor_roll: true, class_rank: 4)
+         noah = school.students.create!(name: "Noah", honor_roll: false, class_rank: 29)
+
+         expect(Student.where(honor_roll: true)).to eq([mandy])
+      end
+   end
 end
       
