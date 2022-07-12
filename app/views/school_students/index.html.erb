@@ -1,6 +1,6 @@
 <%= link_to "Students", "/students" %>
-<%= link_to "Create Student", "/schools/:school_id/students/new" %>
-<%= link_to "Sort Alphabetically", "/schools/:school_id/students" %>
+<%= link_to "Create Student", "/schools/#{@school.id}/students/new" %>
+<%= link_to "Sort Alphabetically", "/schools/#{@school.id}/students?sort=alpha" %>
 <% @students.each do |student| %>
    <p>Name: <%= student.name %></p>
    <p>Honor Roll: <%= student.honor_roll %></p>
