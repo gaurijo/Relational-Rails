@@ -5,6 +5,6 @@
 
 <% @schools.each_with_index do |school, index| %>
 <div id="school-<%= index%>">
-<p> <%= school.name %> <b>Created At:</b> <%= school.created_at%> <%= link_to "Update School", "/schools/edit" %></p> 
+<p> <%= school.name %> <b>Created At:</b> <%= school.created_at%> <%= link_to "Update School", "/schools/#{school.id}edit" %></p> 
 </div>
 <% end %>
