@@ -116,7 +116,7 @@ RSpec.describe 'the school index page' do
          visit '/schools'
          click_link "Update School"
 
-         expect(current_path).to eq("/schools/#{monta.id}edit")
+         expect(current_path).to eq("/schools/#{monta.id}/edit")
       end
    
 end
