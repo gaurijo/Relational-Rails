@@ -74,4 +74,23 @@ RSpec.describe 'school students index' do
 
       expect(page).to have_link("Create Student")
    end
+
+#User Story 16, Sort Parent's Children in Alphabetical Order by name 
+# As a visitor
+# When I visit the Parent's children Index Page
+# Then I see a link to sort children in alphabetical order 
+
+   it 'displays a link to sort students in alphabetical order' do 
+         school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                                 ap_program: true)
+      school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
+                                    ap_program: false)                          
+      student = school.students.create!(name: "Mira", honor_roll: true, class_rank: 4)
+      student_2 = school_2.students.create!(name: "Ellen", honor_roll: true, class_rank: 29)
+   
+      visit "/schools/#{school.id}/students"
+      find_link "Sort Alphabetically"
+
+      expect(page).to have_link("Sort Alphabetically")
+   end
 end

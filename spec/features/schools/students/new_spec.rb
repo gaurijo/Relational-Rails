@@ -13,6 +13,6 @@ RSpec.describe 'the School Student creation' do
       visit "/schools/#{school.id}/students"
       click_link "Create Student"
 
-      expect(current_path).to eq("/schools/:school_id/students/new")
+      expect(current_path).to eq("/schools/#{school.id}/students/new")
    end
 end
