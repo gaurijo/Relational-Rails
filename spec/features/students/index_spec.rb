@@ -112,4 +112,32 @@ RSpec.describe 'the student index page' do
         expect(page).to have_content("Mandy")
         expect(page).to_not have_content("Noah")
     end
+
+#    user story 18
+#    When I visit the `child_table_name` index page
+#    Next to every child, I see a link to edit that child's info
+
+    it 'displays a link to edit each student info' do 
+        school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                                ap_program: true)
+        mandy = school.students.create!(name: "Mandy", honor_roll: true, class_rank: 4)
+        noah = school.students.create!(name: "Noah", honor_roll: false, class_rank: 29) 
+
+        visit '/students'
+        find_link("Update Student")
+
+        expect(page).to have_link("Update Student")
+    end
+#   When I click the link
+#    I should be taken to that `child_table_name` edit page where I can update its information
+    it 'links to the students edit page' do 
+        monta = School.create!(name: "Monta Vista High School", national_rank: 12, 
+                                ap_program: true)
+        mandy = monta.students.create!(name: "Mandy", honor_roll: true, class_rank: 4)
+
+        visit '/students'
+        click_link "Update Student"
+
+        expect(current_path).to eq("/students/#{mandy.id}/edit")
+    end
 end

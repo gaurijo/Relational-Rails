@@ -3,7 +3,7 @@
 <%= link_to "Schools", "/schools" %>
 <% @students.each do |student| %>
 <% if student.honor_roll == true %>
-<p>Name: <%= student.name %></p>
+<p>Name: <%= student.name %> <%= link_to "Update Student", "/students/#{student.id}/edit" %> </p>
 <p>Honor Roll? <%= student.honor_roll %></p>
 <p>Class Rank: <%= student.class_rank %></p>
 <p>School Id: <%= student.school_id %></p>
