@@ -23,7 +23,7 @@ describe Student, type: :model do
       end
    end
 
-   describe "ordered alphabaetically" do 
+   describe "ordered alphabetically" do 
       it 'returns students ordered alphabetically' do 
          school = School.create!(name: "Lemonade High School", national_rank: 12, 
                                  ap_program: true)
