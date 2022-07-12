@@ -94,6 +94,20 @@ RSpec.describe 'the school index page' do
       expect(current_path).to eq('/schools')
       
    end
+#User story 17
+# As a visitor
+# When I visit the parent index page
+# Next to every parent, I see a link to edit that parent's info
+# When I click the link
+# I should be taken to that parents edit page where I can update its information
+      it 'displays a link to edit the schools info next to every school record' do 
+         monta = School.create!(name: "Monta Vista High School", national_rank: 12, 
+                                 ap_program: true)
+         
+         visit '/schools'
+         find_link "Update School"
 
+         expect(page).to have_link("Update School")
+      end
    
 end
