@@ -7,4 +7,5 @@ class SchoolStudentsController < ApplicationController
    def new 
    end
    
+   
 end
