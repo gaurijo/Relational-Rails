@@ -93,4 +93,32 @@ RSpec.describe 'school students index' do
 
       expect(page).to have_link("Sort Alphabetically")
    end
+
+   # us 18
+   # When I visit the `child_table_name` index page
+   # Next to every child, I see a link to edit that child's info
+
+   it 'displays a link to edit each student info' do 
+      school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                              ap_program: true)
+      mandy = school.students.create!(name: "Mandy", honor_roll: true, class_rank: 4)
+      noah = school.students.create!(name: "Noah", honor_roll: false, class_rank: 29) 
+
+      visit "/schools/#{school.id}/students"
+      find_link("Update Student", match: :first)
+
+      expect(page).to have_link("Update Student")
+      # expect(current_path).to eq("/students/#{mandy.id}/edit")
+   end
+
+   it 'links to the students edit page' do 
+      monta = School.create!(name: "Monta Vista High School", national_rank: 12, 
+                              ap_program: true)
+      mandy = monta.students.create!(name: "Mandy", honor_roll: true, class_rank: 4)
+
+      visit "/schools/#{monta.id}/students"
+      click_link "Update Student"
+
+      expect(current_path).to eq("/students/#{mandy.id}/edit")
+   end
 end

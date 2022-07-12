@@ -128,7 +128,8 @@ RSpec.describe 'the student index page' do
 
         expect(page).to have_link("Update Student")
     end
-
+#   When I click the link
+#    I should be taken to that `child_table_name` edit page where I can update its information
     it 'links to the students edit page' do 
         monta = School.create!(name: "Monta Vista High School", national_rank: 12, 
                                 ap_program: true)

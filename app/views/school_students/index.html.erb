@@ -2,7 +2,7 @@
 <%= link_to "Create Student", "/schools/#{@school.id}/students/new" %>
 <%= link_to "Sort Alphabetically", "/schools/#{@school.id}/students?sort=alpha" %>
 <% @students.each do |student| %>
-   <p>Name: <%= student.name %></p>
+   <p>Name: <%= student.name %> <%= link_to "Update Student", "/students/#{student.id}/edit" %> </p>
    <p>Honor Roll: <%= student.honor_roll %></p>
    <p>Class Rank: <%= student.class_rank %></p>
 <% end %>
