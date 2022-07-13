@@ -8,13 +8,14 @@ class SchoolStudentsController < ApplicationController
       end
    end
 
-   def new 
+   def new
+      # @school = School.find(params[:id]) 
    end
    
    def create 
-      # school = School.create(name: params[:name], national_rank: params[:national_rank], ap_program: params[:ap_program])
-      # school.students.create(name: params[:name], class_rank: params[:class_rank], honor_roll: params[:honor_roll], school_id: params[:school_id])
-      # redirect_to "/schools/#{school.id}/students"
+      # @school = School.find(params[:id])
+      # @school.students.create(name: params[:name], class_rank: params[:class_rank], honor_roll: params[:honor_roll], school_id: params[:school_id])
+      # redirect_to "/schools/#{@school.id}/students"
    end
 
 # private

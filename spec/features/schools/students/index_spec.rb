@@ -1,9 +1,3 @@
-# User Story 5, School Students Index 
-
-# As a visitor
-# When I visit '/schools/:school_id/students'
-# Then I see each Student that is associated with that School with each Student's attributes
-
 require 'rails_helper'
 
 RSpec.describe 'school students index' do 
@@ -75,11 +69,6 @@ RSpec.describe 'school students index' do
       expect(page).to have_link("Create Student")
    end
 
-#User Story 16, Sort Parent's Children in Alphabetical Order by name 
-# As a visitor
-# When I visit the Parent's children Index Page
-# Then I see a link to sort children in alphabetical order 
-
    it 'displays a link to sort students in alphabetical order' do 
       school = School.create!(name: "Lemonade High School", national_rank: 12, 
                                  ap_program: true)
@@ -93,10 +82,6 @@ RSpec.describe 'school students index' do
 
       expect(page).to have_link("Sort Alphabetically")
    end
-
-   # us 18
-   # When I visit the `child_table_name` index page
-   # Next to every child, I see a link to edit that child's info
 
    it 'displays a link to edit each student info' do 
       school = School.create!(name: "Lemonade High School", national_rank: 12, 

@@ -1,16 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'the schools show page' do 
-
-
-
-# User Story 2, School Show 
-# As a visitor
-# When I visit '/schools/:id'
-# Then I see the school with that id including the school's attributes:
-# - data from each column that is on the parent table (name, national_rank,
-#ap_program)
-
    it 'displays the school name with the associated id' do 
       school = School.create!(name: "Lemonade High School", national_rank: 12, 
                               ap_program: true)
@@ -28,7 +18,7 @@ RSpec.describe 'the schools show page' do
       school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
                                  ap_program: false)           
       visit "/schools/#{school.id}"
-      # save_and_open_page
+   
       expect(page).to have_content(school.national_rank)
       # expect(page).to_not have_content(school_2.national_rank)
    end
@@ -56,9 +46,7 @@ RSpec.describe 'the schools show page' do
 
       visit "/schools/#{school.id}"
 
-      # within '#school-0' do 
       expect(page).to have_content("Students")
-      
    end
 
    it 'displays a link at the top of the page that takes user to the students show page' do 
@@ -115,13 +103,6 @@ RSpec.describe 'the schools show page' do
       expect(page).to have_link("Update School")
    end
 
-# User story 19 - When I visit a parent show page
-# Then I see a link to delete the parent
-# When I click the link "Delete Parent"
-# Then a 'DELETE' request is sent to '/parents/:id',
-# the parent is deleted, and all child records are deleted
-# and I am redirected to the parent index page where I no longer see this parent
-
    it 'displays a link to delete the school from that school show page' do 
       school = School.create!(name: "Lemonade High School", national_rank: 12, 
                                  ap_program: true)
@@ -141,9 +122,4 @@ RSpec.describe 'the schools show page' do
 
       expect(current_path).to eq("/schools")
    end
-
 end
-      
-
-      
-   

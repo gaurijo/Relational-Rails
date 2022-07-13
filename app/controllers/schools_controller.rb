@@ -7,7 +7,6 @@ class SchoolsController < ApplicationController
     end
 
     def create 
-        # mango = School.create(name: params[:name], national_rank: params[:national_rank], ap_program: params[:ap_program])
         mango = School.create(school_params)
         redirect_to "/schools"
     end

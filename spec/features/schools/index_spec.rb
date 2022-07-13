@@ -1,13 +1,6 @@
 require 'rails_helper' 
 
 RSpec.describe 'the school index page' do 
-
-# User Story 1, School Index 
-# For each school table
-# As a visitor
-# When I visit '/schools'
-# Then I see the name of each school record in the system
-
    it 'displays the name of each school' do 
       school = School.create!(name: "Lemonade High School", national_rank: 12, 
                               ap_program: true)
@@ -21,11 +14,6 @@ RSpec.describe 'the school index page' do
       # expect(page).to_not have_content(school.national_rank)
    end
 
-# As a visitor
-# When I visit the parent index,
-# I see that records are ordered by most recently created first
-# And next to each of the records I see when it was created
-
    it 'orders index by most recently created first' do 
       school = School.create!(name: "Lemonade High School", national_rank: 12, 
                               ap_program: true)
@@ -35,7 +23,6 @@ RSpec.describe 'the school index page' do
                               ap_program: false) 
 
       visit '/schools'
-      # save_and_open_page
 
       within '#school-0' do 
          expect(page).to have_content("Kiwi High School")
@@ -94,10 +81,6 @@ RSpec.describe 'the school index page' do
       expect(current_path).to eq('/schools')
       
    end
-#User story 17
-# As a visitor
-# When I visit the parent index page
-# Next to every parent, I see a link to edit that parent's info
 
    it 'displays a link to edit the schools info next to every school record' do 
       monta = School.create!(name: "Monta Vista High School", national_rank: 12, 
@@ -108,8 +91,7 @@ RSpec.describe 'the school index page' do
 
       expect(page).to have_link("Update School")
    end
-# When I click the link
-# I should be taken to that parents edit page where I can update its information
+
    it 'links to the schools edit page' do 
       monta = School.create!(name: "Monta Vista High School", national_rank: 12, 
                                  ap_program: true)
@@ -118,10 +100,6 @@ RSpec.describe 'the school index page' do
 
       expect(current_path).to eq("/schools/#{monta.id}/edit")
    end
-#User story 22
-# As a visitor
-# When I visit the parent index page
-# Next to every parent, I see a link to delete that parent's info
 
    it 'displays a link to delete the schools info next to every school record' do 
       monta = School.create!(name: "Monta Vista High School", national_rank: 12, 
@@ -134,16 +112,4 @@ RSpec.describe 'the school index page' do
    
 
    end
-
-# When I click the link
-# I should be taken to that parents index where I no longer see that school
-   # it 'links to the schools index page' do 
-   #    monta = School.create!(name: "Monta Vista High School", national_rank: 12, 
-   #                               ap_program: true)
-   #    visit '/schools'
-   #    click_link "Delete School"
-
-   #    expect(current_path).to eq('/schools')
-   # end
-
 end
