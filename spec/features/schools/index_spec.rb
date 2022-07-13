@@ -11,7 +11,6 @@ RSpec.describe 'the school index page' do
 
       expect(page).to have_content(school.name)
       expect(page).to have_content(school_2.name)
-      # expect(page).to_not have_content(school.national_rank)
    end
 
    it 'orders index by most recently created first' do 
@@ -47,7 +46,7 @@ RSpec.describe 'the school index page' do
       visit '/schools'
 
       expect(page).to have_content(school.created_at)
-      # expect(page).to_not have_content(school.national_rank)
+      expect(page).to_not have_content("National rank")
    end
 
    it 'displays a link at the top of the page that takes user to the students index page' do 
@@ -109,7 +108,5 @@ RSpec.describe 'the school index page' do
       find_link "Delete School"
 
       expect(page).to have_link("Delete School")
-   
-
    end
 end

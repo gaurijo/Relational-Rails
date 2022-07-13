@@ -1,13 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'the students show page' do 
-
-# User Story 4, Student Show 
-# As a visitor
-# When I visit '/students/:id'
-# Then I see the student with that id including the student's attributes: name, honor_roll,
-# class_rank, school_id
-
    it 'displays the student name associated with the id' do 
       school = School.create!(name: "Lemonade High School", national_rank: 12, 
                               ap_program: true)
@@ -48,7 +41,7 @@ RSpec.describe 'the students show page' do
       visit "/students/#{student.id}"
 
       expect(page).to have_content(student.class_rank)
-      # expect(page).to_not have_content(student_2.class_rank)
+      expect(page).to_not have_content("Ellen")
    end 
 
    it 'displays the school id associated with the student' do 
@@ -79,10 +72,6 @@ RSpec.describe 'the students show page' do
       expect(page).to have_link("Students")
    end
 
-# As a visitor (story 14)
-# When I visit a Child Show page
-# Then I see a link to update that Child "Update Child"
-
    it 'displays a link to update the student page' do 
       school = School.create!(name: "Lemonade High School", national_rank: 12, 
                                  ap_program: true)
@@ -93,14 +82,6 @@ RSpec.describe 'the students show page' do
 
       expect(page).to have_link("Update Student")
    end
-
-
-# User story 20 - When I visit a child show page
-# Then I see a link to delete the child
-# When I click the link "Delete child"
-# Then a 'DELETE' request is sent to '/childs/:id',
-# the child is deleted
-# and I am redirected to the child index page where I no longer see this child
 
    it 'displays a link to delete the student from that student show page' do 
       school = School.create!(name: "Lemonade High School", national_rank: 12, 

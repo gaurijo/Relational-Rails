@@ -20,7 +20,7 @@ RSpec.describe 'the schools show page' do
       visit "/schools/#{school.id}"
    
       expect(page).to have_content(school.national_rank)
-      # expect(page).to_not have_content(school_2.national_rank)
+      expect(page).to_not have_content("Watermelon High School")
    end
 
    it 'displays true if the school has an AP Program' do 
@@ -47,6 +47,7 @@ RSpec.describe 'the schools show page' do
       visit "/schools/#{school.id}"
 
       expect(page).to have_content("Students")
+      expect(page).to have_content(school.students.count)
    end
 
    it 'displays a link at the top of the page that takes user to the students show page' do 
@@ -89,8 +90,6 @@ RSpec.describe 'the schools show page' do
       find_link "Roster"
       
       expect(page).to have_link("Roster")
-      # expect(current_path).to eq("/schools/#{school.id}/students")
-      
    end
 
    it 'displays a link to update the school page' do 

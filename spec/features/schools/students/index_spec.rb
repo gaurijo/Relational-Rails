@@ -4,16 +4,18 @@ RSpec.describe 'school students index' do
    it 'shows all of the student names for the school' do
       school = School.create!(name: "Lemonade High School", national_rank: 12, 
                               ap_program: true)
+      sphs = School.create!(name: "SPHS", national_rank: 55, ap_program: true)
       mira = school.students.create!(name: "Mira", honor_roll: true, class_rank: 4)
       rhonda = school.students.create!(name: "Rhonda", honor_roll: false, class_rank: 49)
+      sean = sphs.students.create!(name: "Sean", honor_roll: false, class_rank: 88)
 
       visit "/schools/#{school.id}/students"
 
-      expect(page).to have_content(mira.name)
-      expect(page).to have_content(rhonda.name)
+      expect(page).to have_content("Mira")
+      expect(page).to_not have_content("Sean")
    end
 
-   it 'shows all of the student honor roll for the school' do 
+   it 'shows all of the student honor roll status for the school' do 
       school = School.create!(name: "Lemonade High School", national_rank: 12, 
                               ap_program: true)
       mira = school.students.create!(name: "Mira", honor_roll: true, class_rank: 4)

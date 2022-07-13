@@ -35,6 +35,5 @@ RSpec.describe 'the School update' do
 
       expect(current_path).to eq("/schools/#{school.id}")
       expect(page).to have_content("Lemon High School")
-
    end
 end

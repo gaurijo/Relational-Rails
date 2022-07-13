@@ -1,25 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'the student index page' do 
-
-# User Story 3, Child Index 
-
-# As a visitor
-# When I visit '/child_table_name'
-# Then I see each Child in the system including the Child's attributes
-
-# User Story 8, Child Index Link
-
-# As a visitor
-# When I visit any page on the site
-# Then I see a link at the top of the page that takes me to the Child Index
-
-# User Story 9, Parent Index Link
-
-# As a visitor
-# When I visit any page on the site
-# Then I see a link at the top of the page that takes me to the Parent Index
-
     it 'displays the name of each student' do 
         school = School.create!(name: "Lemonade High School", national_rank: 12, 
                                 ap_program: true)
@@ -28,9 +9,9 @@ RSpec.describe 'the student index page' do
         student = school.students.create!(name: "Mira", honor_roll: true, class_rank: 4)
         student_2 = school_2.students.create!(name: "Ellen", honor_roll: true, class_rank: 29)
 
-    visit '/students'
+        visit '/students'
 
-    expect(page).to have_content(student.name)
+        expect(page).to have_content(student.name)
     end
 
     it 'displays true/false if the student is part of the honor roll' do
@@ -41,9 +22,9 @@ RSpec.describe 'the student index page' do
         student = school.students.create!(name: "Mira", honor_roll: true, class_rank: 4)
         student_2 = school_2.students.create!(name: "Ellen", honor_roll: true, class_rank: 29)
 
-    visit '/students'
+        visit '/students'
 
-    expect(page).to have_content(student.honor_roll)
+        expect(page).to have_content(student.honor_roll)
     end
 
     it 'displays the student class rank' do 
@@ -57,7 +38,6 @@ RSpec.describe 'the student index page' do
         visit '/students'
 
         expect(page).to have_content(student.class_rank)
-
     end
 
     it 'displays the school id associated with the student' do 
@@ -113,10 +93,6 @@ RSpec.describe 'the student index page' do
         expect(page).to_not have_content("Noah")
     end
 
-#    user story 18
-#    When I visit the `child_table_name` index page
-#    Next to every child, I see a link to edit that child's info
-
     it 'displays a link to edit each student info' do 
         school = School.create!(name: "Lemonade High School", national_rank: 12, 
                                 ap_program: true)
@@ -128,8 +104,7 @@ RSpec.describe 'the student index page' do
 
         expect(page).to have_link("Update Student")
     end
-#   When I click the link
-#    I should be taken to that `child_table_name` edit page where I can update its information
+
     it 'links to the students edit page' do 
         monta = School.create!(name: "Monta Vista High School", national_rank: 12, 
                                 ap_program: true)
@@ -141,11 +116,6 @@ RSpec.describe 'the student index page' do
         expect(current_path).to eq("/students/#{mandy.id}/edit")
     end
 
-    # As a visitor - user story 23
-    # When I visit the `student index page or a school student index page
-    # Next to every child, I see a link to delete that child
-    # When I click the link
-    # I should be taken to the `school` index page where I no longer see that child
     it 'displays a link to delete each student' do 
         school = School.create!(name: "Lemonade High School", national_rank: 12, 
                                 ap_program: true)
