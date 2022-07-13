@@ -39,4 +39,18 @@ RSpec.describe School, type: :model do
             expect(school.student_count).to eq(2)
         end
     end
+
+    # describe 'threshold_students' do 
+    #     it 'displays only those schools that meet a certain threshold' do 
+    #         school = School.create!(name: "Lemonade High School", national_rank: 12, 
+    #                         ap_program: true)
+    #         school_2 = School.create!(name: "Solar High School", national_rank: 80,
+    #                         ap_program: false)
+    #         mandy = school.students.create!(name: "Mandy", honor_roll: true, class_rank: 4)
+    #         noah = school.students.create!(name: "Noah", honor_roll: false, class_rank: 29)
+    #         lucas = school_2.students.create!(name: "Lucas", honor_roll: true, class_rank: 1)
+
+    #         expect(school.where("school.students.count > ?", 2)).to eq([school])
+    #     end
+    # end
 end

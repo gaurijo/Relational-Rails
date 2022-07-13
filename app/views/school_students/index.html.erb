@@ -1,8 +1,14 @@
 <%= link_to "Students", "/students" %>
 <%= link_to "Create Student", "/schools/#{@school.id}/students/new" %>
 <%= link_to "Sort Alphabetically", "/schools/#{@school.id}/students?sort=alpha" %>
+<h1>Our Students</h1>
+<%= form_with url: "/schools/#{@school.id}/students", method: :post do |form| %>
+   <%= form.label :student_count, "Only return records with more than (x number of students)" %>
+   <%= form.text_field :schools_with_more_than %>
+   <%= form.submit 'Find Schools' %>
+<% end %>
 <% @students.each do |student| %>
-   <p>Name: <%= student.name %> <%= link_to "Update Student", "/students/#{student.id}/edit" %> 
+   <p><b>Name:</b> <%= student.name %> <%= link_to "Update Student", "/students/#{student.id}/edit" %> 
    <%= link_to "Delete Student", "/students/", method: :delete %> </p>
    <p>Honor Roll: <%= student.honor_roll %></p>
    <p>Class Rank: <%= student.class_rank %></p>

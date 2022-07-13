@@ -1,11 +1,11 @@
-<h1>Schools</h1>
+<h1>Welcome to Fruit Schools!</h1>
 <%= link_to "Students", "/students" %>
 <%= link_to "Schools", "/schools" %>
 <%= link_to "New School", "/schools/new" %>
 
 <% @schools.each_with_index do |school, index| %>
 <div id="school-<%= index%>">
-<p> <%= school.name %> <b>Created At:</b> <%= school.created_at%> <%= link_to "Update School", "/schools/#{school.id}/edit" %>
+<p> <b><%= school.name %></b> <i>Created At:</i> <%= school.created_at%> <%= link_to "Update School", "/schools/#{school.id}/edit" %>
 <%= link_to "Delete School", "/schools/#{school.id}", method: :delete %> </p> 
 </div>
 <% end %>

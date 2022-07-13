@@ -14,12 +14,12 @@ class SchoolStudentsController < ApplicationController
    
    def create 
       @school = School.find(params[:id])
-      @school.students.create(name: params[:name], class_rank: params[:class_rank], honor_roll: params[:honor_roll], school_id: params[:school_id])
+      @school.students.create(school_student_params)
       redirect_to "/schools/#{@school.id}/students"
    end
 
-# private
-#    def school_student_params 
-#       params.permit(:name, :honor_roll, :class_rank, :school_id)
-#    end
+private
+   def school_student_params 
+      params.permit(:name, :honor_roll, :class_rank, :school_id)
+   end
 end
