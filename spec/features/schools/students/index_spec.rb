@@ -118,4 +118,22 @@ RSpec.describe 'school students index' do
 
       expect(page).to have_link("Delete Student")
    end
+
+   it 'displays a form that allows the user to input a numerical value' do 
+      school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                              ap_program: true)
+      school_2 = School.create!(name: "Solar High School", national_rank: 80,
+                              ap_program: false)
+      mandy = school.students.create!(name: "Mandy", honor_roll: true, class_rank: 4)
+      noah = school.students.create!(name: "Noah", honor_roll: false, class_rank: 29)
+      lucas = school_2.students.create!(name: "Lucas", honor_roll: true, class_rank: 1)
+
+      visit "/schools/#{school.id}/students"
+
+      fill_in("schools_with_more_than", with: 2)
+      click_button("Find Schools")
+
+      expect(page).to have_content(school.name)
+      expect(page).to_not have_content(school_2.name)
+   end
 end
