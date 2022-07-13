@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   patch '/schools/:id', to: 'schools#update'
   patch '/students/:id', to: 'students#update'
   delete '/schools/:id', to: 'schools#destroy'
+  delete '/students/:id', to: 'students#destroy'
 end

@@ -1,6 +1,7 @@
 <h1><%= @student.name %></h1>
 <%= link_to "Students", "/students" %>
 <%= link_to "Update Student", "/students/#{@student.id}/edit" %>
+<%= link_to "Delete Student", "/students/#{@student.id}", method: :delete %>
 <p>Honor Roll: <%= @student.honor_roll%></p>
 <p>Class Rank: <%= @student.class_rank%></p>
 <p>School Id: <%= @student.school_id%></p>
