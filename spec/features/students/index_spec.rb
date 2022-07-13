@@ -140,4 +140,21 @@ RSpec.describe 'the student index page' do
 
         expect(current_path).to eq("/students/#{mandy.id}/edit")
     end
+
+    # As a visitor - user story 23
+    # When I visit the `student index page or a school student index page
+    # Next to every child, I see a link to delete that child
+    # When I click the link
+    # I should be taken to the `school` index page where I no longer see that child
+    it 'displays a link to delete each student' do 
+        school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                                ap_program: true)
+        mandy = school.students.create!(name: "Mandy", honor_roll: true, class_rank: 4)
+        noah = school.students.create!(name: "Noah", honor_roll: false, class_rank: 29) 
+
+        visit '/students'
+        click_link("Delete Student")
+
+        expect(current_path).to eq("/students")
+    end
 end
