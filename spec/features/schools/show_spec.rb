@@ -114,6 +114,34 @@ RSpec.describe 'the schools show page' do
 
       expect(page).to have_link("Update School")
    end
+
+# User story 19 - When I visit a parent show page
+# Then I see a link to delete the parent
+# When I click the link "Delete Parent"
+# Then a 'DELETE' request is sent to '/parents/:id',
+# the parent is deleted, and all child records are deleted
+# and I am redirected to the parent index page where I no longer see this parent
+
+   it 'displays a link to delete the school from that school show page' do 
+      school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                                 ap_program: true)
+
+      visit "/schools/#{school.id}"
+      find_link "Delete School"
+
+      expect(page).to have_link("Delete School")
+   end
+
+   it 'deletes the school' do 
+      school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                                 ap_program: true)
+      
+      visit "/schools/#{school.id}"
+      click_link "Delete School"
+
+      expect(current_path).to eq("/schools")
+   end
+
 end
       
 
