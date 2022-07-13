@@ -128,7 +128,7 @@ RSpec.describe 'the school index page' do
                                  ap_program: true)
          
       visit '/schools'
-      click_link "Delete School"
+      find_link "Delete School"
 
       expect(page).to have_link("Delete School")
       expect(current_path).to eq('/schools')
