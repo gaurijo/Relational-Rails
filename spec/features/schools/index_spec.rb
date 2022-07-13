@@ -118,6 +118,32 @@ RSpec.describe 'the school index page' do
 
       expect(current_path).to eq("/schools/#{monta.id}/edit")
    end
+#User story 22
+# As a visitor
+# When I visit the parent index page
+# Next to every parent, I see a link to delete that parent's info
 
+   it 'displays a link to delete the schools info next to every school record' do 
+      monta = School.create!(name: "Monta Vista High School", national_rank: 12, 
+                                 ap_program: true)
+         
+      visit '/schools'
+      click_link "Delete School"
+
+      expect(page).to have_link("Delete School")
+      expect(current_path).to eq('/schools')
+
+   end
+
+# When I click the link
+# I should be taken to that parents index where I no longer see that school
+   # it 'links to the schools index page' do 
+   #    monta = School.create!(name: "Monta Vista High School", national_rank: 12, 
+   #                               ap_program: true)
+   #    visit '/schools'
+   #    click_link "Delete School"
+
+   #    expect(current_path).to eq('/schools')
+   # end
 
 end
