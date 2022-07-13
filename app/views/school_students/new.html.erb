@@ -1,4 +1,4 @@
-<%= form_with url: "/schools/:school_id/students", method: :post, local: true do |form| %>
+<%= form_with url: "/schools/#{@school.id}/students", method: :post, local: true do |form| %>
    <p><%= form.label :name %>
    <%= form.text_field :name %></p>
    <p><%= form.label :class_rank %>
