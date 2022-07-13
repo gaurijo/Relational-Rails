@@ -81,7 +81,7 @@ RSpec.describe 'school students index' do
 # Then I see a link to sort children in alphabetical order 
 
    it 'displays a link to sort students in alphabetical order' do 
-         school = School.create!(name: "Lemonade High School", national_rank: 12, 
+      school = School.create!(name: "Lemonade High School", national_rank: 12, 
                                  ap_program: true)
       school_2 = School.create!(name: "Watermelon High School", national_rank: 19,
                                     ap_program: false)                          
@@ -120,5 +120,17 @@ RSpec.describe 'school students index' do
       click_link "Update Student"
 
       expect(current_path).to eq("/students/#{mandy.id}/edit")
+   end
+
+   it 'displays a link to delete each student' do 
+      school = School.create!(name: "Lemonade High School", national_rank: 12, 
+                              ap_program: true)
+      mandy = school.students.create!(name: "Mandy", honor_roll: true, class_rank: 4)
+      noah = school.students.create!(name: "Noah", honor_roll: false, class_rank: 29) 
+
+      visit "/schools/#{school.id}/students"
+      find_link("Delete Student", match: :first)
+
+      expect(page).to have_link("Delete Student")
    end
 end
