@@ -29,7 +29,7 @@ class SchoolsController < ApplicationController
     def destroy 
         school = School.find(params[:id])
         school.destroy
-        redirect_to "/schools"
+        redirect_to '/schools'
     end
 
 private
