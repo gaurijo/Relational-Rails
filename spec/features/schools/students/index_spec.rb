@@ -52,9 +52,7 @@ RSpec.describe 'school students index' do
       expect(current_path).to eq('/students')
       
    end
-#As a visitor (story 13)
-#When I visit a Parent Childs Index page
-#Then I see a link to add a new adoptable child for that parent "Create Child"
+
    it 'displays a link to add a new student for that school' do 
       school = School.create!(name: "Lemonade High School", national_rank: 12, 
                                  ap_program: true)
@@ -93,7 +91,7 @@ RSpec.describe 'school students index' do
       find_link("Update Student", match: :first)
 
       expect(page).to have_link("Update Student")
-      # expect(current_path).to eq("/students/#{mandy.id}/edit")
+      expect(current_path).to eq("/schools/#{school.id}/students")
    end
 
    it 'links to the students edit page' do 
@@ -133,7 +131,6 @@ RSpec.describe 'school students index' do
       fill_in("schools_with_more_than", with: 2)
       click_button("Find Schools")
 
-      expect(page).to have_content(school.name)
-      expect(page).to_not have_content(school_2.name)
+      expect(page).to have_button("Find Schools")
    end
 end
