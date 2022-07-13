@@ -2,6 +2,7 @@
 <%= link_to "Schools", "/schools" %>
 <%= link_to "Roster", "/schools/#{@school.id}/students" %>
 <%= link_to "Update School", "/schools/#{@school.id}/edit" %>
+<%= link_to "Delete School", "/schools/#{@school.id}", method: :delete %>
 
 <h1><%= @school.name %></h1>
 <p>National Rank: <%= @school.national_rank %></p>
